@@ -5,7 +5,7 @@ $fn=25;
 wt=3; // wall thickness
 xs=80;
 ys=80;
-zs=20;
+zs=15;
 
 difference() {
     roundedcube([xs+2*wt,ys+2*wt,zs+wt],radius=1);
@@ -13,14 +13,7 @@ difference() {
     cube([xs,ys,zs]);
 };
 
-
-
-
-
 echo(version=version());
-
-
-
 
 
 // More information: https://danielupshaw.com/openscad-rounded-corners/
