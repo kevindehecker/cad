@@ -5,33 +5,45 @@ $fn=25;
 w_trali=3;
 w_tot = 10;
 
-xb=10;
+xb=17;
 yb=4.5*w_tot - 0.5*w_trali;
-zb=30;
-r = 2;
+zb=25;
+ang = 2;
 
 s = 0.01;
 s2 = 2*s;
+deepf = 0.8;
 
 difference() {
     roundedcube([xb,yb,zb],radius=1);
     
-    rotate([0.5*r,0,0])
+    
     translate([-s,w_tot/2,-1])
-    cube([10+s2,w_trali,zb*2/3+s2]);
+    rotate([ang,0,0])
+    cube([xb+s2,w_trali,zb*deepf+s2]);
     
-    rotate([-r,0,0])
+    
     translate([-s,w_tot*1.5,-1])
-    cube([10+s2,w_trali,zb*2/3+s2]);
+    rotate([-ang,0,0])
+    cube([xb+s2,w_trali,zb*deepf+s2]);
         
-    rotate([r,0,0])
-    translate([-s,w_tot*2.5,-1])
-    cube([10+s2,w_trali,zb*2/3+s2]);
     
-    rotate([-r,0,0])
+    translate([-s,w_tot*2.5,-1])
+    rotate([ang,0,0])
+    cube([xb+s2,w_trali,zb*deepf+s2]);
+    
+    
     translate([-s,w_tot*3.5,-1])
-    cube([10+s2,w_trali,zb*2/3+s2]);    
+    rotate([-ang,0,0])
+    cube([xb+s2,w_trali,zb*deepf+s2]);    
 };
+
+translate([xb/2,yb/2,zb-s])
+cylinder(10,4,3);
+
+r_sphere = 17/2;
+translate([xb/2,yb/2,zb-2*s+10+r_sphere/2])
+sphere(r_sphere);
 
 echo(version=version());
 
