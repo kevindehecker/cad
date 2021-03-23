@@ -6,7 +6,7 @@ w_trali=3;
 w_tot = 10;
 
 xb=17;
-yb=4.5*w_tot - 0.5*w_trali;
+yb=3.5*w_tot - 0.5*w_trali;
 zb=25;
 ang = 2;
 
@@ -30,11 +30,6 @@ difference() {
     
     translate([-s,w_tot*2.5,-1])
     rotate([ang,0,0])
-    cube([xb+s2,w_trali,zb*deepf+s2]);
-    
-    
-    translate([-s,w_tot*3.5,-1])
-    rotate([-ang,0,0])
     cube([xb+s2,w_trali,zb*deepf+s2]);    
 };
 
