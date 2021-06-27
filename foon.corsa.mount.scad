@@ -3,11 +3,14 @@
 $fn=25;
 
 w_trali=3;
+w_hold=7.1;
 w_tot = 10;
 
-xb=17;
+xb=50;
+xb_mid=17;
 yb=3.5*w_tot - 0.5*w_trali;
-zb=25;
+yb_trali = 2*w_tot;
+zb=37;
 ang = 2;
 
 s = 0.01;
@@ -16,23 +19,32 @@ deepf = 0.8;
 
 difference() {
     roundedcube([xb,yb,zb],radius=1);
+    //cube([xb,yb,zb]);
     
+    translate([-s,-s,-s])
+    cube([(xb-xb_mid)/2+s2,yb_trali+s2,zb+s2]);
+    
+    translate([-s+(xb-xb_mid)+1,-s,-s])
+    cube([(xb-xb_mid)/2+s2,yb_trali+s2,zb+s2]);    
     
     translate([-s,w_tot/2,-1])
-    rotate([ang,0,0])
+    //rotate([ang,0,0])
     cube([xb+s2,w_trali,zb*deepf+s2]);
     
-    
-    translate([-s,w_tot*1.5,-1])
-    rotate([-ang,0,0])
-    cube([xb+s2,w_trali,zb*deepf+s2]);
+    translate([-s,w_tot*1.5-w_hold/3,-1])
+    //rotate([-ang,0,0])
+    cube([xb+s2,w_hold,zb*deepf+s2]);
         
-    
     translate([-s,w_tot*2.5,-1])
-    rotate([ang,0,0])
-    cube([xb+s2,w_trali,zb*deepf+s2]);    
+    //rotate([-ang,0,0])
+    cube([xb+s2,w_trali,zb*deepf+s2]);   
 };
 
+//haakie
+translate([5,yb-2*w_trali,0])
+cube([xb-10,1,0.5]);
+
+//staafie + bolletje
 translate([xb/2,yb/2,zb-s])
 cylinder(10,4,3);
 
