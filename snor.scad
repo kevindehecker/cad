@@ -3,7 +3,7 @@
 $fn=25;
 grr=0.001;
 
-xb=100;
+xb=160;
 yb=30;
 zb=2;
 
@@ -12,7 +12,7 @@ zb=2;
 yt=8;
 zt=6;
 
-yv = 3.3; // snede breedte
+yv = 3.1; // snede breedte
 zv = 1; // dikte
 
 yw = 4.3; // rails breedte
